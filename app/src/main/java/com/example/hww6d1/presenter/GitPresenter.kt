@@ -12,7 +12,7 @@ class GitPresenter: GitContract.Presenter {
     private val gitFactory = GitFactory()
 
     private lateinit var view: GitContract.View
-    override fun getRepsotories() {
+    override fun getRepositories() {
         //TODO: Implement retrofit
         gitFactory.getRepsotories().enqueue(object :
             Callback<List<Repository>> {
@@ -23,7 +23,7 @@ class GitPresenter: GitContract.Presenter {
                 Log.d("TAG_X", "onREsponse")
                 response.body()?.let { repositories ->
                     if(repositories.isNotEmpty())
-                        view.displayRepsotories(repositories)
+                        view.displayRepositories(repositories)
                     else
                         view.displayError()
 

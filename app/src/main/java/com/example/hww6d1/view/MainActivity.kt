@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(), GitContract.View {
 
         gitPresenter = GitPresenter()
         gitPresenter.setView(this)
-        gitPresenter.getRepsotories()
+        gitPresenter.getRepositories()
 
     }
     override fun displayRepositories(repositories: List<Repository>) {
@@ -45,8 +45,8 @@ class MainActivity : AppCompatActivity(), GitContract.View {
 
         card_title.text = repositories[0].owner.login
 
-        val repositories = RepoAdaptor(repositories)
-        card_text.adapter = repositories
+        val repository = RepoAdaptor(repositories)
+        card_text.adapter = repository
         val linear = LinearLayoutManager(this)
         //linear.orientation = RecyclerView.HORIZONTAL
         card_text.layoutManager = linear
